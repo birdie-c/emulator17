@@ -14,7 +14,7 @@
 <br>
 <br>
 
-<img width="1219" height="284" alt="image" src="https://github.com/user-attachments/assets/11e24aa8-bf1a-4ef0-b122-6b0a2fdc10bb" />
+<img width="1092" height="404" alt="image" src="https://github.com/user-attachments/assets/3ec7d685-2e7e-4821-847d-ddf59cdb847e" />
 <em>Скрин 3: Пример работы программы</em>
 
 <br>
