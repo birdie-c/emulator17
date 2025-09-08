@@ -19,15 +19,20 @@ while True:
         break
 
     elif command == "ls": #list - содержимое текущей директории
-        print("file1.txt  file2.txt")
+        if len(args) > 1:
+            print("ERROR\nСлишком много аргументов для 'ls'")
+        elif len(args) == 1:
+            print(f"ls {args[0]}")  
+        else:
+            print('ls')
 
     elif command == "cd": #cd - change directory
         if len(args) > 1:
             print("ERROR\nСлишком много аргументов для 'cd'")
         elif len(args) == 1:
-            print(f"Переход в дриекторию {args[0]}")  
+            print(f"cd {args[0]}")  
         else:
-            print('Домашнаяя директория')
+            print('cd')
     else:
         print(f"ERROR\nНеизвестная команда: {command}")
             
