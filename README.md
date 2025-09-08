@@ -1,6 +1,6 @@
 <h1>Мамасова Анна ИКБО-30-24</h1>
 
-<h2>ЭТАП 1</h2>
+<h2>ЭТАП 1. REPL</h2>
 
 <img width="1677" height="334" alt="1" src="https://github.com/user-attachments/assets/028d2866-ec22-4eeb-a4cc-4784bf44a36b" />
 <em>Скрин 1: Настройка репозитория</em>
