@@ -1,38 +1,71 @@
 import os
 import socket
+import argparse
+import sys
 
-username = os.getlogin()
+parser = argparse.ArgumentParser()
+parser.add_argument('--vfs', '-v', help = 'Путь к файлу VFS')
+parser.add_argument('--script', '-s', help = 'Путь к стартовому файлу')
+args = parser.parse_args()
+print(args.vfs)
 
-hostname = socket.gethostname()
-
-while True:
-    inp = input(f"{username}@{hostname}:~$ ")
+def processInput(inp): # обработка команд
     parts = inp.strip().split()
 
     if not parts:
-        continue
+        return
 
     command = parts[0]
     args = parts[1:]
-
-    if command == "exit":
-        break
-
-    elif command == "ls": #list - содержимое текущей директории
+    
+    if command == "ls": # list - содержимое текущей директории
         if len(args) > 1:
-            print("ERROR\nСлишком много аргументов для 'ls'")
+            return "ERROR\nСлишком много аргументов для 'ls'"
         elif len(args) == 1:
-            print(f"ls {args[0]}")  
+            return f"ls {args[0]}" 
         else:
-            print('ls')
+            return 'ls'
 
-    elif command == "cd": #cd - change directory
+    elif command == "cd": # cd - change directory
         if len(args) > 1:
-            print("ERROR\nСлишком много аргументов для 'cd'")
+            return "ERROR\nСлишком много аргументов для 'cd'"
         elif len(args) == 1:
-            print(f"cd {args[0]}")  
+            return f"cd {args[0]}"
         else:
-            print('cd')
+            return 'cd'
     else:
         print(f"ERROR\nНеизвестная команда: {command}")
-            
+
+username = os.getlogin()
+hostname = socket.gethostname()
+
+if args.script:
+    try:
+        with open(args.script, 'r') as script_file:
+
+            commandExit = False;
+            for line in script_file:
+                line = line.strip()
+                if not line or line.startswith('#'): # пропускаем пустые строки и комментарии
+                    continue
+
+                print(f"{username}@{hostname}:~$ {line}")
+                
+                if line.split()[0] == "exit":
+                    sys.exit()
+                
+                result = processInput(line) # обрабатываем все остальные команды
+                if result:
+                    print(result)
+    except FileNotFoundError:
+        print(f"Ошибка: скрипт '{args.script}' не найден")
+
+
+while True:
+    inp = input(f"{username}@{hostname}:~$ ")
+        
+    if inp.strip() == "exit":
+        break
+    result = processInput(inp)
+    if result:
+        print(result)
