@@ -1,4 +1,4 @@
-<img width="880" height="352" alt="image" src="https://github.com/user-attachments/assets/9338e971-2b2f-4a5c-9d46-73e5f0396e2e" /><h1>Вариант 17</h1>
+<h1>Вариант 17</h1>
 
 <h2>ЭТАП 1. REPL</h2>
 
@@ -20,7 +20,7 @@
 <br>
 <br>
 
-<h2>ЭТАП 2</h2>
+<h2>ЭТАП 2. Конфигурация</h2>
 <img width="880" height="352" alt="image" src="https://github.com/user-attachments/assets/56fe10bc-cd07-4131-a35e-e8b405b86ef8" />
 <em>Скрин 4: Создание тестовых скриптов</em>
 
