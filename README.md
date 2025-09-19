@@ -22,6 +22,7 @@
 
 <h2>ЭТАП 2. Конфигурация</h2>
 <img width="880" height="352" alt="image" src="https://github.com/user-attachments/assets/56fe10bc-cd07-4131-a35e-e8b405b86ef8" />
+<br>
 <em>Скрин 4: Создание тестовых скриптов</em>
 
 <br>
