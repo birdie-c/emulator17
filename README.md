@@ -1,4 +1,4 @@
-<h1>Мамасова Анна ИКБО-30-24 | Вариант 17</h1>
+<img width="880" height="352" alt="image" src="https://github.com/user-attachments/assets/9338e971-2b2f-4a5c-9d46-73e5f0396e2e" /><h1>Мамасова Анна ИКБО-30-24 | Вариант 17</h1>
 
 <h2>ЭТАП 1. REPL</h2>
 
@@ -21,8 +21,8 @@
 <br>
 
 <h2>ЭТАП 2</h2>
-<img width="733" height="287" alt="image" src="https://github.com/user-attachments/assets/791da5a0-7009-4e88-8865-65c6aec343c7" />
-<em>Скрин 4: Создание тестового скрипта</em>
+<img width="880" height="352" alt="image" src="https://github.com/user-attachments/assets/56fe10bc-cd07-4131-a35e-e8b405b86ef8" />
+<em>Скрин 4: Создание тестовых скриптов</em>
 
 <br>
 <br>
