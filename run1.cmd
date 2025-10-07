@@ -1,3 +1,3 @@
 @echo off
-python emulator.py --vfs vfs1 --script script1.sh
+python main.py --vfs vfs.xml --script script1.sh
 pause
