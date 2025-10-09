@@ -1,5 +1,6 @@
 import os
 import xml.etree.ElementTree as ET
+import base64
 from vfs import VFSNode
 
 def load_vfs(xml_path):
@@ -24,13 +25,35 @@ def load_vfs(xml_path):
 def parse_element(el, parent_node):
     if el.tag == "dir":
         name = el.get("name", "")
+        if not name:
+            raise ValueError("Элемент 'dir' должен иметь атрибут 'name'")
         node = VFSNode(name, "dir")
         parent_node.add_child(node)
         for child in el:
             parse_element(child, node)
+
     elif el.tag == "file":
         name = el.get("name", "")
-        node = VFSNode(name, "file")
+        if not name:
+            raise ValueError("Элемент 'file' должен иметь атрибут 'name'")
+
+        encoded_content = el.text.strip() if el.text else ""
+        file_content = None
+
+        if encoded_content:
+            try:
+                decoded_bytes = base64.b64decode(encoded_content)
+
+                try:
+                    file_content = decoded_bytes.decode('utf-8')
+                except UnicodeDecodeError:
+                    encoded_content = el.text.strip() if el.text else ""
+                    file_content = None
+
+            except base64.binascii.Error as e:
+                raise ValueError(f"Ошибка декодирования Base64 в файле '{name}': {e}")
+
+        node = VFSNode(name, "file", content=file_content)
         parent_node.add_child(node)
     else:
         raise ValueError(f"Неизвестный элемент: {el.tag}")

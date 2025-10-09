@@ -1,97 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <vfs>
-  <!-- корень (представляет "/") -->
-  <dir name="">
-    <!-- уровень 1 -->
-    <dir name="bin">
-      <file name="sh" encoding="text">Минимальная оболочка (эмуляция)</file>
-      <file name="hello.bin" encoding="base64">aGVsbG8K</file> <!-- "hello\n" -->
+    <dir name="home">
+        <dir name="user">
+            <file name="profile.txt">
+                VXNlcm5hbWU6IGpvaG5kb2UKUm9sZTogRGV2ZWxvcGVy
+            </file>
+
+            <dir name="projects">
+                <dir name="vfs_shell">
+                    <dir name="src">
+                        <file name="readme.md">
+                            SGVsbG8gZnJvbSBkZXB0aCAzIQ==
+                        </file>
+                    </dir>
+                </dir>
+            </dir>
+
+            <file name="multiline.log">
+                TGluZSAxCkxpbmUgMgpMaW5lIDMKTGluZSA0CkxpbmUgNQpMaW5lIDYKTGluZSA3CkxpbmUgOA==
+            </file>
+
+            <file name="config.zip">
+                UEsDBBQACAgIAJtNklMAAAAAAAAAAAAAAAATAAAAY29uZmlnLnR4dFVUCQADj8hQZpDIUGZ1eAsAUEsBAhQAFAACCAgAm02SUwAAAAAAAAAAAAAAABMAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAABjb25maWcudHh0VVQFAAOj8hQZ
+            </file>
+
+        </dir>
+        <dir name="guest">
+            <file name="temp.data"></file>
+        </dir>
     </dir>
 
     <dir name="etc">
-      <file name="hosts" encoding="text">127.0.0.1 localhost</file>
-      <dir name="network">
-        <file name="interfaces" encoding="text">
-auto lo
-iface lo inet loopback
+        <file name="hosts">
+            MTI3LjAuMC4xICAgbG9jYWxob3N0
         </file>
-      </dir>
     </dir>
-
-    <!-- уровень 1 -> уровень 2 -> уровень 3 -->
-    <dir name="usr">
-      <dir name="local">
-        <dir name="share">
-          <file name="readme.md" encoding="text">Project share: docs and examples.</file>
-          <dir name="examples">
-            <file name="example1.txt" encoding="text">Example file 1</file>
-            <file name="example2.txt" encoding="text">Example file 2</file>
-            <dir name="deep">
-              <dir name="level4">
-                <file name="deep_notes.txt" encoding="text">Глубокие заметки уровня 4</file>
-              </dir>
-            </dir>
-          </dir>
-        </dir>
-      </dir>
-      <dir name="bin">
-        <file name="python" encoding="text">python3 (виртуальная)</file>
-      </dir>
-    </dir>
-
-    <!-- домашние каталоги с несколькими уровнями -->
-    <dir name="home">
-      <dir name="alice">
-        <file name="notes.txt" encoding="text">TODO: finish loader tests</file>
-        <dir name="projects">
-          <dir name="vfs-emulator">
-            <file name="README.md" encoding="text">VFS emulator project README</file>
-            <file name="data.bin" encoding="base64">VGhpcyBpcyBhIHNhbXBsZSBiaW5hcnkgZGF0YS4K</file>
-          </dir>
-          <dir name="old">
-            <file name="old.txt" encoding="text">old project files</file>
-          </dir>
-        </dir>
-      </dir>
-
-      <dir name="bob">
-        <file name="todo.txt" encoding="text">купить молоко\nпозвонить маме</file>
-        <dir name="photos">
-          <dir name="2023">
-            <file name="img1.jpg" encoding="base64">/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkG</file>
-            <file name="img2.jpg" encoding="base64">/9j/4AAQSkZJRgABAQAAAQAB</file>
-          </dir>
-        </dir>
-      </dir>
-    </dir>
-
-    <!-- var с логами, несколько файлов на разных уровнях -->
-    <dir name="var">
-      <dir name="log">
-        <file name="syslog" encoding="text">Oct  7 12:00:01 systemd: Started.</file>
-        <dir name="archive">
-          <file name="syslog.1" encoding="text">Old log content</file>
-        </dir>
-      </dir>
-      <dir name="tmp">
-        <file name="sess_123" encoding="text">session-data</file>
-      </dir>
-    </dir>
-
-    <!-- opt/app пример с бинарной БД (base64) -->
-    <dir name="opt">
-      <dir name="app">
-        <dir name="conf">
-          <file name="app.conf" encoding="text">mode=production\nworkers=3</file>
-        </dir>
-        <dir name="data">
-          <file name="users.db" encoding="base64">AAECAwQFBgcICQ==</file>
-        </dir>
-      </dir>
-    </dir>
-
-    <!-- несколько файлов в корне -->
-    <file name="welcome.txt" encoding="text">Добро пожаловать в виртуальную ФС!</file>
-    <file name="license.txt" encoding="text">MIT License</file>
-  </dir>
 </vfs>
