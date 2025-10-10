@@ -1,5 +1,5 @@
 class VFSNode:
-    def __init__(self, name, node_type="dir"):
+    def __init__(self, name, content, node_type="dir",):
         self.name = name
         self.type = node_type  # "dir" или "file"
         self.children = {} #словарь для дочерних элементов (ключ — имя дочернего узла)

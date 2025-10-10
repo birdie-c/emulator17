@@ -16,7 +16,7 @@ def load_vfs(xml_path):
     if root_el.tag.lower() != "vfs":
         raise ValueError("Корневой элемент XML должен быть <vfs>")
 
-    root_node = VFSNode(name = "")
+    root_node = VFSNode(name = "", content = "")
     for el in root_el:
         parse_element(el, root_node)
 
@@ -53,7 +53,7 @@ def parse_element(el, parent_node):
             except base64.binascii.Error as e:
                 raise ValueError(f"Ошибка декодирования Base64 в файле '{name}': {e}")
 
-        node = VFSNode(name, "file", content=file_content)
+        node = VFSNode(name, file_content, "file")
         parent_node.add_child(node)
     else:
         raise ValueError(f"Неизвестный элемент: {el.tag}")

@@ -29,6 +29,7 @@ def main():
         for script in script_args:
             try:
                 with open(script, "r") as sc:
+                    result = ""
                     for line in sc:
                         line = line.strip()
                         # Пропуск пустых строк или комментариев
@@ -43,10 +44,11 @@ def main():
 
     # Основной интерактивный цикл
     while True:
-        inp = input(f"{username}@{hostname}:{result}$ ")
-        if inp.strip() == "exit":
-            sys.exit(1)
-        current_path = shell.process_input(inp)
+        try:
+            inp = input(f"{username}@{hostname}:{result}$ ")
+            if inp.strip() == "exit":
+                sys.exit(1)
+            current_path = shell.process_input(inp)
         except EOFError: # Обработка Ctrl+D
             print("\nexit")
             sys.exit(0)
